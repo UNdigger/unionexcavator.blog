@@ -1,0 +1,543 @@
+
+<html>
+<head>
+    <title>联合国挖掘机的个人日志 - TXT存储版</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style>
+        body {
+            background: #E7F3FF url("https://www.transparenttextures.com/patterns/diamond-upholstery.png");
+            font-family: SimSun, 宋体;
+            font-size: 12px;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        a {
+            color: #0000CC;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        a:hover {
+            color: #FF0000;
+            text-decoration: underline;
+        }
+
+        .box {
+            border: 1px solid #B4D3F5;
+            background: #FFFFFF;
+            margin-bottom: 10px;
+        }
+
+        .title {
+            background: #E7F1FF;
+            padding: 8px;
+            font-weight: bold;
+            border-bottom: 1px solid #B4D3F5;
+            color: #0055AA;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .title .btn-link {
+            font-size: 11px;
+            font-weight: normal;
+            background: #F0F0F0;
+            padding: 2px 6px;
+            border: 1px solid #B4D3F5;
+            color: #0055AA;
+        }
+        .title .btn-link:hover {
+            background: #FFE4E1;
+            color: #F45A8D;
+            text-decoration: none;
+        }
+
+        .post {
+            padding: 15px;
+            border-bottom: 1px dashed #CCC;
+        }
+
+        .post-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #F45A8D;
+            margin-bottom: 5px;
+        }
+
+        .post-date {
+            font-size: 11px;
+            color: #888;
+            margin-bottom: 10px;
+            background: #F0F0F0;
+            padding: 2px 5px;
+            display: inline-block;
+        }
+
+        .post-content {
+            color: #333;
+            font-size: 13px;
+            white-space: pre-wrap;
+        }
+
+        .read-more {
+            color: #FF6600;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 8px;
+        }
+
+        .back-link {
+            color: #0055AA;
+            margin-bottom: 10px;
+            display: inline-block;
+            font-weight: bold;
+        }
+
+        .footer {
+            background: #F0F0F0;
+            padding: 15px;
+            text-align: center;
+            border-top: 1px solid #CCC;
+        }
+
+        .loading {
+            padding: 20px;
+            text-align: center;
+            color: #888;
+        }
+
+        .error {
+            padding: 20px;
+            text-align: center;
+            color: #F45A8D;
+        }
+
+        ul {
+            padding-left: 25px;
+        }
+
+        ul li {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+<embed src="https://files.catbox.moe/2q1k9m.mid" autostart="true" loop="true" hidden="true">
+
+<table width="800" align="center" cellpadding="0" cellspacing="0" class="box">
+    <tr>
+        <td>
+            <table width="100%" bgcolor="#00A1D6" cellpadding="10">
+                <tr>
+                    <td>
+                        <font size="6" color="red">联</font>
+                        <font size="6" color="orange">合</font>
+                        <font size="6" color="yellow">国</font>
+                        <font size="6" color="green">挖</font>
+                        <font size="6" color="blue">掘</font>
+                        <font size="6" color="purple">机</font>
+                        <font size="2" color="#FFFFFF">TXT存储版</font>
+                    </td>
+                    <td align="right">
+                        <font color="#FFFFFF"><span id="time"></span></font>
+                    </td>
+                </tr>
+            </table>
+
+            <div style="background:#FFF8DC; border-top:3px solid #F45A8D; padding:3px;">
+                <marquee scrollamount="3">★ 欢迎来到我的个人博客 ★ 所有文章来自posts.txt ★ 所有人看到相同内容 ★</marquee>
+            </div>
+
+            <div style="background:#F8F8F8; padding:5px; border-bottom:1px solid #CCC;">
+                [<a href="#" onclick="renderPosts('latest'); return false;">日志首页</a>]
+                [<a href="#">相册</a>]
+                [<a href="#">留言板</a>]
+                [<a href="#">个人档案</a>]
+                [<a href="#"><font color="red">RSS订阅</font></a>]
+            </div>
+
+            <table width="100%" cellpadding="10" cellspacing="0">
+                <tr>
+                    <td width="550" valign="top">
+                        <div class="box">
+                            <div class="title" id="view-title">
+                                <span>最新日志 (Recent Posts)</span>
+                                <a href="#" class="btn-link" id="viewAllBtn" onclick="renderPosts('all'); return false;">[ 全部文章 ]</a>
+                            </div>
+
+                            <!-- 文章容器动态生成 -->
+                            <div id="posts-container">
+                                <div class="loading">正在加载文章...</div>
+                            </div>
+                        </div>
+                    </td>
+
+                    <td width="230" valign="top">
+                        <div class="box">
+                            <div class="title">博主简介</div>
+                            <div style="padding:10px; text-align:center;">
+                                <img src="avt.png" width="120" height="120"
+                                     style="border:1px solid #CCC; padding:2px;"
+                                     onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22120%22 height=%22120%22><rect width=%22120%22 height=%22120%22 fill=%22%23E7F1FF%22/><text x=%2210%22 y=%2260%22 fill=%22%230055AA%22>挖掘机</text></svg>'"><br>
+                                <b>联合国挖掘机</b><br>
+                                现居：幻想乡<br>
+                                爱好：搬运视频、改代码<br>
+<!--                                //<small><a href="#" onclick="showEditGuide()" style="color:#F45A8D;">[如何发布文章]</a></small>-->
+                            </div>
+                        </div>
+
+                        <div class="box">
+                            <div class="title">日志分类</div>
+                            <ul id="category-list">
+                                <li>加载中...</li>
+                            </ul>
+                        </div>
+
+                        <div class="box">
+                            <div class="title">友情链接</div>
+                            <div style="padding:10px;">
+                                <a href="#">ACFUN.CN</a><br>
+                                <a href="#">Mikufans.cn</a><br>
+                                <a href="#">百度贴吧</a><br>
+                                <a href="#">天空软件园</a><br>
+                                <a href="#">华军软件园</a><br>
+                                <a href="#">萌娘百科</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+            <div class="footer">
+                您是本站第 <span id="counter" style="color:red; font-weight:bold;">000000</span> 位访客<br>
+                Copyright © 2009-2024 联合国挖掘机 Blog<br>
+                <img src="gif.gif" width="38" height="33" onerror="this.style.display='none'">
+            </div>
+        </td>
+    </tr>
+</table>
+
+<script>
+    // ==================== 全局变量 ====================
+    let allPosts = [];           // 存储所有文章
+    let currentMode = 'latest';  // 当前显示模式
+    let categories = new Set();  // 所有分类
+
+    // ==================== 从TXT加载文章 ====================
+    async function loadPostsFromTXT() {
+        try {
+            const response = await fetch('posts.txt?' + new Date().getTime()); // 加时间戳防止缓存
+            if (!response.ok) {
+                throw new Error('无法加载posts.txt文件');
+            }
+            const text = await response.text();
+
+            // 解析文章
+            const posts = [];
+            const articles = text.split('===文章开始===');
+
+            for (let article of articles) {
+                if (!article.includes('===文章结束===')) continue;
+
+                // 提取文章内容部分
+                const content = article.split('===文章结束===')[0].trim();
+                const post = {};
+
+                // 解析每一行
+                content.split('\n').forEach(line => {
+                    line = line.trim();
+                    if (line.startsWith('id=')) post.id = line.substring(3).trim();
+                    if (line.startsWith('标题=')) post.title = line.substring(3).trim();
+                    if (line.startsWith('日期=')) post.date = line.substring(3).trim();
+                    if (line.startsWith('分类=')) post.category = line.substring(3).trim();
+                    if (line.startsWith('内容=')) post.content = line.substring(3).trim();
+                });
+
+                // 确保必要的字段存在
+                if (post.id && post.title && post.date && post.category && post.content) {
+                    // 转换id为数字
+                    post.id = parseInt(post.id);
+                    posts.push(post);
+
+                    // 收集分类
+                    if (post.category) {
+                        categories.add(post.category);
+                    }
+                }
+            }
+
+            // 按日期排序（最新的在前）
+            posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+            return posts;
+        } catch (error) {
+            console.error('加载文章失败:', error);
+            // 返回默认文章
+            return getDefaultPosts();
+        }
+    }
+
+    // ==================== 默认文章（当TXT文件不存在时） ====================
+    function getDefaultPosts() {
+        return [
+            {
+                id: 1,
+                title: "【心情】今天终于搞定了CSS布局",
+                date: "2009-10-24 22:30",
+                category: "技术折腾",
+                content: "折腾了半天IE6的双倍边距BUG，终于让页面看起来正常了。果然用Table布局还是最稳的……"
+            },
+            {
+                id: 2,
+                title: "《某科学的超电磁炮》第一话观后感",
+                date: "2009-10-23 15:10",
+                category: "二次元",
+                content: "炮姐太帅了！Only my railgun 前奏一响整个人都燃起来了。希望B站能快点出熟肉。"
+            }
+        ];
+    }
+
+    // ==================== 初始化博客 ====================
+    async function initBlog() {
+        const container = document.getElementById('posts-container');
+        container.innerHTML = '<div class="loading">正在加载文章...</div>';
+
+        // 加载文章
+        allPosts = await loadPostsFromTXT();
+
+        // 更新分类列表
+        updateCategoryList();
+
+        // 渲染最新文章
+        renderPosts('latest');
+    }
+
+    // ==================== 更新分类列表 ====================
+    function updateCategoryList() {
+        const categoryList = document.getElementById('category-list');
+        if (!categoryList) return;
+
+        if (categories.size === 0) {
+            categoryList.innerHTML = '<li>暂无分类</li>';
+            return;
+        }
+
+        let html = '';
+        Array.from(categories).sort().forEach(cat => {
+            // 统计该分类的文章数量
+            const count = allPosts.filter(p => p.category === cat).length;
+            html += `<li><a href="#" onclick="filterByCategory('${cat}'); return false;">${cat} (${count})</a></li>`;
+        });
+        html += `<li><a href="#" onclick="renderPosts('all'); return false;">[查看全部]</a></li>`;
+
+        categoryList.innerHTML = html;
+    }
+
+    // ==================== 渲染函数 ====================
+    function renderPosts(mode, param = null) {
+        currentMode = mode;
+
+        if (mode === 'latest') {
+            displayLatest();
+        } else if (mode === 'all') {
+            displayAll();
+        } else if (mode === 'single') {
+            displaySingle(param);
+        } else if (mode === 'category') {
+            displayCategory(param);
+        }
+
+        // 更新全部按钮文字
+        updateViewAllButton(mode);
+    }
+
+    function displayLatest() {
+        const container = document.getElementById('posts-container');
+        const titleSpan = document.getElementById('view-title').querySelector('span');
+        titleSpan.innerText = '最新日志 (Recent Posts)';
+
+        // 显示最新的3篇
+        const latestPosts = allPosts.slice(0, 3);
+        renderPostList(latestPosts, false);
+    }
+
+    function displayAll() {
+        const titleSpan = document.getElementById('view-title').querySelector('span');
+        titleSpan.innerText = '全部日志 (All Posts)';
+        renderPostList(allPosts, false);
+    }
+
+    function displaySingle(postId) {
+        const post = allPosts.find(p => p.id == postId);
+        if (!post) {
+            displayLatest();
+            return;
+        }
+
+        const container = document.getElementById('posts-container');
+        const titleSpan = document.getElementById('view-title').querySelector('span');
+        titleSpan.innerText = '正文阅读';
+
+        // 创建返回链接
+        const backLink = document.createElement('a');
+        backLink.href = '#';
+        backLink.className = 'back-link';
+        backLink.innerText = '<< 返回首页';
+        backLink.onclick = (e) => { e.preventDefault(); renderPosts('latest'); };
+
+        container.innerHTML = '';
+        container.appendChild(backLink);
+        container.appendChild(createPostElement(post, true));
+    }
+
+    function displayCategory(category) {
+        const filtered = allPosts.filter(p => p.category === category);
+        const titleSpan = document.getElementById('view-title').querySelector('span');
+        titleSpan.innerText = `分类：${category} (${filtered.length}篇)`;
+        renderPostList(filtered, false);
+    }
+
+    // ==================== 渲染文章列表 ====================
+    function renderPostList(posts, isFull = false) {
+        const container = document.getElementById('posts-container');
+        container.innerHTML = '';
+
+        if (posts.length === 0) {
+            container.innerHTML = '<div class="post">暂无文章</div>';
+            return;
+        }
+
+        posts.forEach(post => {
+            container.appendChild(createPostElement(post, false));
+        });
+    }
+
+    // ==================== 创建单篇文章DOM ====================
+    function createPostElement(post, isFull) {
+        const div = document.createElement('div');
+        div.className = 'post';
+
+        // 标题
+        const titleDiv = document.createElement('div');
+        titleDiv.className = 'post-title';
+        titleDiv.innerText = post.title;
+        div.appendChild(titleDiv);
+
+        // 日期和分类
+        const dateDiv = document.createElement('div');
+        dateDiv.className = 'post-date';
+        dateDiv.innerText = `发表于：${post.date} | 分类：${post.category}`;
+        div.appendChild(dateDiv);
+
+        // 内容
+        const contentDiv = document.createElement('div');
+        contentDiv.className = 'post-content';
+        if (isFull) {
+            contentDiv.innerText = post.content;
+        } else {
+            let brief = post.content.length > 60 ? post.content.substring(0, 60) + '……' : post.content;
+            contentDiv.innerText = brief;
+        }
+        div.appendChild(contentDiv);
+
+        // 阅读全文链接（只在列表模式显示）
+        if (!isFull) {
+            const moreLink = document.createElement('a');
+            moreLink.href = '#';
+            moreLink.className = 'read-more';
+            moreLink.innerText = '[阅读全文]';
+            moreLink.onclick = (e) => {
+                e.preventDefault();
+                renderPosts('single', post.id);
+            };
+            div.appendChild(document.createElement('br'));
+            div.appendChild(moreLink);
+        }
+
+        return div;
+    }
+
+    // ==================== 更新全部按钮 ====================
+    function updateViewAllButton(mode) {
+        const btn = document.getElementById('viewAllBtn');
+        if (!btn) return;
+
+        if (mode === 'all') {
+            btn.innerHTML = '[ 最新文章 ]';
+            btn.onclick = function(e) { e.preventDefault(); renderPosts('latest'); };
+        } else {
+            btn.innerHTML = '[ 全部文章 ]';
+            btn.onclick = function(e) { e.preventDefault(); renderPosts('all'); };
+        }
+    }
+
+    // ==================== 分类筛选 ====================
+    function filterByCategory(category) {
+        renderPosts('category', category);
+    }
+
+    // ==================== 发布指南 ====================
+//     function showEditGuide() {
+//         const container = document.getElementById('posts-container');
+//         const titleSpan = document.getElementById('view-title').querySelector('span');
+//         titleSpan.innerText = '如何发布文章';
+//
+//         container.innerHTML = `
+//             <div class="post">
+//                 <div class="post-title">📝 发布新文章的方法</div>
+//                 <div class="post-content">
+//                     <p><b>方法1：在GitHub网页版编辑</b><br>
+//                     1. 打开你的GitHub仓库<br>
+//                     2. 找到 <code>posts.txt</code> 文件<br>
+//                     3. 点击铅笔图标编辑<br>
+//                     4. 按照下面的格式添加新文章<br>
+//                     5. 点击"Commit changes"</p>
+//
+//                     <p><b>📄 文章格式（复制粘贴）：</b></p>
+//                     <pre style="background:#F0F0F0; padding:10px; border:1px solid #CCC;">
+// ===文章开始===
+// id=3
+// 标题=你的文章标题
+// 日期=2024-01-20 15:30
+// 分类=生活琐事
+// 内容=这里是文章内容，可以写很多行……
+// ===文章结束===</pre>
+//
+//                     <p><b>⚠️ 注意：</b><br>
+//                     - id不能重复，最好用当前时间戳<br>
+//                     - 日期格式：YYYY-MM-DD HH:MM<br>
+//                     - 保存后所有人立刻看到新文章</p>
+//
+//                     <p><a href="#" onclick="renderPosts('latest'); return false;">← 返回首页</a></p>
+//                 </div>
+//             </div>
+//         `;
+//     }
+
+    // ==================== 时间和计数器 ====================
+    function updateTime() {
+        const now = new Date();
+        const week = "日一二三四五六"[now.getDay()];
+        document.getElementById("time").innerHTML = now.getFullYear() + "年" +
+            (now.getMonth() + 1) + "月" + now.getDate() + "日 星期" + week + "<br>" +
+            now.toLocaleTimeString();
+    }
+    setInterval(updateTime, 1000);
+    updateTime();
+
+    // 访客计数器
+    if (!localStorage.getItem("blogCounter")) {
+        localStorage.setItem("blogCounter", "1024");
+    }
+    let count = parseInt(localStorage.getItem("blogCounter")) + 1;
+    localStorage.setItem("blogCounter", count);
+    document.getElementById("counter").innerText = count.toString().padStart(6, "0");
+
+    // 启动博客
+    initBlog();
+</script>
+</body>
+</html>
